@@ -5,4 +5,4 @@ if ! [ -L /var/www ]; then
   ln -fs /vagrant /var/www
 fi
 
-tput setaf 4; echo "The IP of the host $(hostname) is $(hostname -I)"
+tput setaf 4; echo "The IP of the host $(hostname) is $(hostname -I | awk '{print $2}')"
