@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
       node.vm.box = "edorion/nginx64"
       node.vm.hostname = vm_name
     end
-    config.vm.provision :shell, path: "bootstrap.sh"
+    config.vm.provision "provisioner script", type: "shell", path: "bootstrap.sh"
     config.vm.provider "virtualbox" do |v|
       v.memory = 2048
       v.cpus = 2

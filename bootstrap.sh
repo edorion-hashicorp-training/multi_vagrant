@@ -6,11 +6,11 @@ if ! [ -L /var/www ]; then
 fi
 
 ## print servers IP address
-tput setaf 4; echo "The IP of the host $(hostname) is $(hostname -I | awk '{print $2}')"
-tput setaf 4; echo "To verify please browse to http://$(hostname -I | awk '{print $2}')/$(hostname).html
+echo "The IP of the host $(hostname) is $(hostname -I | awk '{print $2}')"
 
 ## generate server identified html file
-cat <<EOF > /var/www/$(hostname).html
+echo "Creating dynamic html page"
+cat <<EOF > /var/www/html/$(hostname).html
 <html>
 <body>
 <p>hostname is: $(hostname)</p>
@@ -18,3 +18,4 @@ cat <<EOF > /var/www/$(hostname).html
 </html>
 EOF
 
+echo "To verify please browse to http://$(hostname -I | awk '{print $2}')/$(hostname).html"
